@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week1Proble3</title>
+    <script src="jquery-2.2.4.js" ></script>
+    <script src="week1Exercise1.js" ></script>
+</head>
+<body>
+<!--test-->
+<script>
+
+    // -- Ex. 2
+    //
+    // Using the Star Wars API, log the first film a given Star Wars character's homeworld appeared in
+    //
+    //
+    $(document).ready(function () {
+
+        fetch('https://swapi.co/api/people/')
+            .then((response) => {
+                const people = response.json().then((people) => {
+                    console.log(people.results);
+
+                    let nameInput = input => {
+                        for (let person of people.results) {
+                            if (person.name === input) {
+                                let homeUrl = (person.homeworld);
+                                console.log(homeUrl);
+                                fetch(`${homeUrl}`).then((response => {
+                                    let homePlanet = response.json().then((homePlanet => {
+                                        console.log(homePlanet);
+                                    }))
+                                }))
+                            }
+                        }
+                    };
+                    nameInput("Darth Vader");
+
+                })
+            })
+    });
+
+</script>
+</body>
+</html>

@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Exercise2 Es6</title>
+    <script src="jquery-2.2.4.js"></script>
 </head>
 <body>
 <script>
-// 1
-    // 152. Write a JavaScript program to round a number to a specified amount of digits.
 
-
-
-// 2
+    // 1
     // Write a JavaScript program to reverse the order of the characters in the string.
+    let reverseString = string => (Array.from(string).reverse().toString());
+    console.log(reverseString('idiot'));
 
 
 
-// 3
+    // // 2
     //Write a JavaScript program to convert an asynchronous function to return a promise.
+    $(document).ready(function () {
 
-
+   fetch('https://swapi.co/api/planets/')
+        .then((response) => {
+            const planets = response.json().then((planets) => {
+                    console.log(planets.results);
+                });
+            })
+    });
 </script>
 </body>
 </html>
