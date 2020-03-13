@@ -1,5 +1,3 @@
-
-
 // =================== Fetch Bonuses
 //
 // -- Ex. 1
@@ -13,10 +11,14 @@
 // }
 //
 // Add an input field and submit button (you will need to prevent the default behaviour if inside a form element) that when clicked, runs the following function...
- $('body').
+document.write('testing ');
 
+fetch('data/profiles.json')
+.then(function (response) {
+    console.log(response.json().json())
+
+});
 // Create a function that takes in a username and fetch's the color preference based on the username and sets the background color to that color.
-
 
 
 //
