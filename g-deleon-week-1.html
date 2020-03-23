@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    "use strict";
+//    Problem 1 from  --- https://www.w3resource.com/javascript-exercises/fundamental/javascript-fundamental-exercise-70.php
+    //  Write a JavaScript program to count the occurrences of a value in an array.
+
+    // Example
+    // const numbers = [1, 2, 3, 4, 5];
+    //
+    // const sum = numbers.reduce((accumulation, currentNumber) => {
+    //     return accumulation + currentNumber;
+    // }, 0);
+
+    // function countOccurrences(arrayInput, value) {
+    //     const sameValue = arrayInput.reduce((accumulator, currentValue) => {
+    //         if (currentValue === value) {
+    //             return accumulator += 1;
+    //         } else {
+    //              return accumulator
+    // }
+    //     },0);
+    //     return sameValue;
+    // }
+
+
+    // function countOccurrences(arrayInput, value) {
+    // const sameValue = arrayInput.reduce((accumulator, currentValue) => (currentValue === value ? accumulator + 1 : accumulator), 0);
+    // return sameValue;
+    // }
+
+// const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+
+// console.log(countOccurrences([1, 1, 2, 1, 2, 3], 1));
+// console.log(countOccurrences([1, 1, 2, 1, 2, 3], 3));
+// console.log(countOccurrences([1, 1, 2, 1, 2, 3], 2));
+
+
+// Problem 2  ES6 Youtube tutorial
+//     https://www.youtube.com/watch?v=WZQc7RUAg18
+
+// const user = {
+//     name: "Ed",
+//     age: 25,
+//     sayName: function() {
+//         console.log("My name is " +  this.name);
+//         var that = this;
+//         var fullName = function() {
+//             // console.log("name is " + this.name + " and age is " + this.age);
+//             console.log("name is " + that.name + " and age is " + that.age);
+//         }
+//         fullName();
+//     }
+// }
+
+const user = {
+    name: "Ed",
+    age: 25,
+    sayName: function() {
+        console.log(`My name is ${this.name}`);
+        const fullName = () => {console.log(`name is ${this.name} and age is ${this.age}`);};
+
+        fullName();
+    }
+}
+
+user.sayName();
+
+// Problem 3 Promises problem from edabit
+//  https://edabit.com/challenge/HT2dHkbzmLDZgsS7G
+
+    let promise = new Promise( (resolve, reject) => {
+        // let animal = "cat";
+        let animal = "dog";
+        setTimeout(() => {
+            if (animal === "dog") {
+                resolve(console.log("It's a dog!"));
+            } else {
+                reject(console.log("It's not a dog!"));
+            }
+        }, 1000);
+    });
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
