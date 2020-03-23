@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+// the following problems were taken from a Youtube Javascript tutorial.
+    // https://www.youtube.com/watch?v=DHvZLI7Db8E&t=494s
+    //
+
+    // *************    Problem 1 - simple promise function to determine how a promise works *********************
+
+    // let p = new Promise((res, rej) => {
+    //     let a = 1+2
+    //     if (a === 2) {
+    //         res('Success')
+    //     } else {
+    //         rej('Failed')
+    //     }
+    // })
+    //
+    // p.then((message) => {
+    //     console.log('This is in the then ' + message)
+    // }).catch((message) => {
+    //     console.log('This is in the catch ' + message)
+    // })
+
+// ****************   Problem 2 using callbacks *****************
+
+// const testOne = true;
+// const testTwo = false;
+// function callbackTutorial(callback, errorCallback) {
+//     if (testOne) {
+//         errorCallback({
+//             name: 'Test One',
+//             message: 'Error callback #1'
+//         })
+//     } else if (testTwo) {
+//         errorCallback({
+//             name: 'Test Two',
+//             message: 'Error callback #2'
+//         })
+//     }else {
+//         callback('This is the callback with no error')
+//     }
+// }
+// callbackTutorial((message) => {
+//     console.log('Success: ' + message)
+// }, (error) => {
+//     console.log(error.name + ' ' + error.message)
+// })
+
+    //************  Problem 2 using Promises    ******************
+
+    // const testOne = true;
+    // const testTwo = false;
+    // function callbackTutorialPromise() {  //removed paramaters
+    //     return new Promise((resolve, reject) => {  //added this return to return a Promise
+    //         if (testOne) {
+    //             reject({  // replaced "errorCallback" with "reject"
+    //                 name: 'Test One',
+    //                 message: 'Error callback #1'
+    //             })
+    //         } else if (testTwo) {
+    //             reject({  // replaced "errorCallback" with "reject"
+    //                 name: 'Test Two',
+    //                 message: 'Error callback #2'
+    //             })
+    //         }else {
+    //             resolve('This is the callback with no error') //replaced "callback" with "resolve"
+    //         }
+    //     })
+    // }
+    //
+    // callbackTutorialPromise().then((message) => {  //removed paramaters from function, added .then
+    //     console.log('Success: ' + message)
+    // }).catch((error) => {                           // added .catch
+    //     console.log(error.name + ' ' + error.message)
+    // })
+
+    //  *****************   Problem 3   *********************
+
+    const promiseOne = new Promise((resolve, reject) => {
+        resolve('Promise 1 resolved');
+    })
+
+    const promiseTwo = new Promise((resolve, reject) => {
+        resolve('Promise 2 resolved');
+    })
+
+    const promiseThree = new Promise((resolve, reject) => {
+        resolve('Promise 3 resolved');
+    })
+
+    Promise.all([
+        promiseOne,
+        promiseTwo,
+        promiseThree
+        ]).then((messages) => {
+            console.log(messages)
+    })
+
+
+</script>
+
+</body>
+</html>
